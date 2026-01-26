@@ -1,23 +1,363 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
-  </body>
-</html>
+
+
+  <!-- Schema.org HomeAndConstructionBusiness 마크업(JSON-LD) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HomeAndConstructionBusiness",
+    "name": "오래된 아파트 리모델링 전문 서비스",
+    "image": "https://도메인/리모델링로고.png",
+    "url": "https://도메인/오래된-아파트-리모델링",
+    "telephone": "031-123-4567",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "경기도 평택시 ○○로 ○○",
+      "addressLocality": "평택시",
+      "addressRegion": "경기",
+      "postalCode": "17900",
+      "addressCountry": "KR"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "서울시" },
+      { "@type": "City", "name": "부산시" },
+      { "@type": "City", "name": "대구시" },
+      { "@type": "City", "name": "인천시" },
+      { "@type": "City", "name": "광주시" },
+      { "@type": "City", "name": "대전시" },
+      { "@type": "City", "name": "울산시" },
+      { "@type": "City", "name": "세종시" },
+      { "@type": "City", "name": "경기도" }
+    ],
+    "priceRange": "₩₩₩",
+    "description": "오래된 아파트 리모델링 전문 서비스. 2026년 최신 견적, 공사 기간, 장단점, 추천 업체 정보 제공."
+  }
+  </script>
+
+  <style>
+    /* Noto Sans KR 폰트 적용 및 기본 스타일 설정 */
+    body { font-family: 'Noto Sans KR', sans-serif; margin:0; padding:0; background:#f0f4f8; color:#333; line-height:1.7; font-size:16px; }
+    header, section, footer { max-width:960px; margin:20px auto; padding:25px 30px; background:#ffffff; border-radius:16px; box-shadow:0 8px 20px rgba(0,0,0,0.08); }
+    /* 전문적이고 부드러운 색상 팔레트: 미드나잇 블루, 청록색, 소프트 그레이 */
+    h1, h2, h3 { color:#0a3b6f; margin-bottom:15px; }
+    h1 { font-size:2.8rem; font-weight:700; color:#0a3b6f; line-height:1.4; }
+    h2 { font-size:2.2rem; font-weight:700; border-bottom:3px solid #e0eaf4; padding-bottom:10px; margin-top:30px; }
+    h3 { font-size:1.6rem; font-weight:700; color:#1a527f; margin-top:25px; border-left:4px solid #4caf50; padding-left:10px; }
+    p, li, td, th { font-size:1.05rem; line-height:1.8; color:#444; }
+    ul, ol { padding-left:30px; }
+    li { margin-bottom:8px; }
+    a { color:#1a73e8; text-decoration:none; transition: color 0.3s; }
+    a:hover { color:#0b3d91; text-decoration:underline; }
+    
+    /* 테이블 스타일 개선 - 가독성 및 디자인 통일성 */
+    table { width:100%; border-collapse: separate; border-spacing: 0; margin:20px 0; border-radius:8px; overflow:hidden; box-shadow:0 2px 5px rgba(0,0,0,0.05); }
+    th, td { border:none; padding:15px; text-align:left; }
+    th { background:#4caf50; color:#ffffff; font-weight:700; border-bottom:1px solid #e0eaf4; }
+    td { background:#ffffff; border-bottom:1px solid #f0f4f8; }
+    tr:nth-child(even) td { background:#f9f9f9; }
+    
+    /* CTA 버튼 스타일 개선 - 부드럽고 눈에 띄게 */
+    .btn-cta {
+      display:inline-block;
+      padding:16px 35px;
+      background:#4caf50; /* 청록색 계열 */
+      color:#fff;
+      font-weight:700;
+      font-size:1.1rem;
+      border:none;
+      border-radius:30px;
+      box-shadow:0 6px 15px rgba(76, 175, 80, 0.4);
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      cursor:pointer;
+      text-decoration:none;
+      text-align:center;
+      margin-top:20px;
+    }
+    .btn-cta:hover {
+      background:#388e3c;
+      transform:translateY(-2px);
+    }
+    
+    /* 네비게이션 스타일 - 페이지 내 이동 */
+    nav ul { list-style:none; padding:0; display:flex; flex-wrap:wrap; margin-bottom:20px; }
+    nav li { margin-right:15px; margin-bottom:10px; }
+    nav a { padding:8px 15px; background:#e0eaf4; border-radius:20px; color:#1a527f; font-weight:500; transition: background-color 0.3s; }
+    nav a:hover { background:#c6d9f1; text-decoration:none; }
+    
+    /* 내부 링크용 앵커 */
+    .anchor { display:block; position:relative; top:-100px; visibility:hidden; }
+
+    /* FAQ 스타일 */
+    dl { background:#f9f9f9; padding:20px; border-radius:10px; margin-top:20px; border:1px solid #e0eaf4; }
+    dt { font-weight:bold; color:#0a3b6f; font-size:1.1rem; margin-top:15px; }
+    dd { margin-left:20px; padding-bottom:10px; border-bottom:1px dashed #e0eaf4; }
+    dd:last-child { border-bottom:none; }
+
+    /* 폼 스타일 */
+    form { background:#ffffff; padding:30px; border-radius:12px; border:1px solid #e0eaf4; }
+    input[type="text"], input[type="tel"], textarea, select {
+        width:calc(100% - 20px); padding:10px; margin-bottom:15px; border:1px solid #ccc; border-radius:8px; font-size:1rem; box-sizing:border-box;
+    }
+    label { font-weight:bold; display:block; margin-bottom:5px; color:#444; }
+    
+    /* 반응형 디자인 */
+    @media(max-width:768px) {
+      body { padding:10px; }
+      header, section, footer { margin:10px; padding:20px; }
+      h1 { font-size:2.2rem; }
+      h2 { font-size:1.8rem; }
+      nav ul { flex-direction:column; }
+      nav li { margin-right:0; margin-bottom:5px; }
+      nav a { display:block; width:100%; text-align:center; }
+      .btn-cta { width:100%; padding:18px 0; font-size:1rem; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>오래된 아파트 리모델링, 2026년 최신 비용 & 견적 완벽 가이드</h1>
+    <p>10년 이상 구축 아파트, 20평/30평 리모델링 올수리 및 부분 수리 견적 비교. 장점, 단점, 후기, 내돈내산 팁까지 모두 확인하세요.</p>
+    <a class="btn-cta" href="#contact">리모델링 무료 견적 받기</a>
+  </header>
+
+  <nav aria-label="페이지 내 이동">
+    <ul>
+      <li><a href="#intro">리모델링 장점 및 단점</a></li>
+      <li><a href="#pricing">리모델링 비용 분석</a></li>
+      <li><a href="#process">리모델링 과정 상세</a></li>
+      <li><a href="#checklist">필수 체크리스트</a></li>
+      <li><a href="#design">인테리어 디자인 팁</a></li>
+      <li><a href="#faq">자주 묻는 질문</a></li>
+      <li><a href="#contact">무료 견적 상담</a></li>
+    </ul>
+  </nav>
+
+  <!-- Section 1: 오래된 아파트 리모델링의 필요성 및 장단점 분석 -->
+  <section id="intro">
+    <span id="intro-anchor" class="anchor"></span>
+    <h2>오래된 아파트 리모델링, 왜 필요할까요? (장단점 분석)</h2>
+    <p>오래된 아파트(구축 아파트)는 시간이 지나면서 다양한 문제점들이 발생합니다. 단순한 노후화뿐만 아니라 곰팡이, 누수, 난방 효율 저하, 단열 문제, 그리고 구식 인테리어 디자인 등이 대표적입니다. 리모델링은 이러한 문제를 해결하여 주거 환경을 개선하고, 자산 가치까지 높이는 효과적인 방법입니다.</p>
+    
+    <h3>1-1. 오래된 아파트 리모델링의 장점</h3>
+    <ol>
+      <li><strong>주거 환경 개선 및 기능성 향상:</strong> 낡은 배관 교체, 단열 보강, 창호(샷시) 교체를 통해 에너지 효율을 높이고 곰팡이, 결로 현상을 해결할 수 있습니다. 특히 층간 소음 저감, 난방비 절약 등의 실질적인 장점이 있습니다.</li>
+      <li><strong>내부 공간 재구성:</strong> 오래된 아파트는 거실과 주방이 분리되거나 방이 좁게 설계된 경우가 많습니다. 리모델링을 통해 비내력벽을 철거하고 거실 확장, 주방-거실 통합형 구조(LDK)를 구현하여 개방감 있는 공간을 만들 수 있습니다.</li>
+      <li><strong>자산 가치 상승:</strong> 깔끔하게 리모델링된 아파트는 매매 시점에서 경쟁력을 갖습니다. 주변 신축 아파트에 비해 저렴한 가격으로 구매 후 리모델링을 통해 신축급 주거 환경을 확보하는 것이 투자 측면에서도 유리합니다.</li>
+      <li><strong>개인의 취향 반영:</strong> 기성품 아파트와 달리, 개인의 라이프스타일에 맞춘 맞춤형 인테리어를 구현할 수 있습니다.</li>
+    </ol>
+    
+    <h3>1-2. 오래된 아파트 리모델링의 단점</h3>
+    <ol>
+      <li><strong>높은 초기 비용 및 추가 비용 발생 가능성:</strong> 구축 아파트는 철거 비용이 많이 들고, 예상치 못한 배관, 전기 문제로 인해 추가 비용(예상 금액의 10~20%p)이 발생할 수 있습니다.</li>
+      <li><strong>공사 기간:</strong> 전체 올수리(All-remodeling)의 경우 최소 4주에서 8주 이상의 긴 공사 기간이 필요합니다. 공사 기간 동안 임시 거주 공간을 마련해야 하는 번거로움이 있습니다.</li>
+      <li><strong>소음 및 민원 문제:</strong> 철거 및 공사 과정에서 발생하는 소음은 이웃과의 갈등을 유발할 수 있습니다. 사전에 관리사무소에 허가를 받고 이웃에게 양해를 구하는 과정이 필수입니다.</li>
+    </ol>
+    
+    <p>오래된 아파트 리모델링은 단순한 인테리어 변경을 넘어, 아파트의 수명을 연장하고 주거의 질을 향상시키는 중요한 투자입니다. 하지만 비용, 기간, 민원 등 고려할 사항이 많으므로 전문가의 도움을 받는 것이 중요합니다.</p>
+  </section>
+
+  <!-- Section 2: 리모델링 비용 분석 및 견적 가이드 -->
+  <section id="pricing">
+    <span id="pricing-anchor" class="anchor"></span>
+    <h2>2026년 리모델링 비용 분석: 구축 아파트 견적 가이드</h2>
+    <p>리모델링 비용은 아파트 평수, 공사 범위(올수리/부분수리), 자재의 등급(일반/고급), 그리고 시공업체의 역량에 따라 크게 달라집니다. 2026년 기준, 인건비와 자재비가 상승하면서 전년 대비 평균 10% 정도의 비용 증가가 예상됩니다. 정확한 <strong>리모델링 견적</strong>을 받기 위해서는 <strong>내돈내산</strong> 후기를 참고하여 합리적인 <strong>비용</strong>을 예측하는 것이 중요합니다.</p>
+    
+    <h3>2-1. 아파트 평수별 예상 리모델링 비용 (2026년 기준)</h3>
+    <p>아래 표는 일반적인 10~20년 차 구축 아파트 리모델링 시 <strong>평균 금액</strong>을 나타냅니다. (자재 등급 및 시공 조건에 따라 <strong>가격</strong> 변동폭이 큽니다.)</p>
+    <table>
+      <thead>
+        <tr>
+          <th>아파트 평수</th>
+          <th>부분 수리 예상 비용</th>
+          <th>올수리 표준 견적</th>
+          <th>올수리 고급 견적</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>20평대 (1~2인 가구)</td>
+          <td>₩1,500만 ~ ₩2,500만</td>
+          <td>₩3,000만 ~ ₩4,500만</td>
+          <td>₩5,000만 ~ ₩7,000만+</td>
+        </tr>
+        <tr>
+          <td>30평대 (3~4인 가구)</td>
+          <td>₩2,000만 ~ ₩3,500만</td>
+          <td>₩4,000만 ~ ₩6,000만</td>
+          <td>₩7,000만 ~ ₩1억+</td>
+        </tr>
+        <tr>
+          <td>40평대 이상</td>
+          <td>₩3,000만 ~ ₩5,000만</td>
+          <td>₩6,000만 ~ ₩9,000만</td>
+          <td>₩1억 ~ ₩1억5,000만+</td>
+        </tr>
+      </tbody>
+    </table>
+    
+    <h3>2-2. 리모델링 비용을 결정하는 주요 요소</h3>
+    <ol>
+      <li><strong>공사 범위:</strong> 올수리(전체)와 부분 수리의 <strong>가격 차이점</strong>이 가장 큽니다. 올수리는 철거, 창호, 배관 등 기초 공사를 모두 포함하지만, 부분 수리는 도배, 장판, 주방, 욕실 등 필요한 부분만 시공합니다. <strong>저렴한곳</strong>을 찾기 위해선 불필요한 공사를 제거해야 합니다.</li>
+      <li><strong>인건비와 자재비:</strong> 인건비는 <strong>견적</strong>의 약 30~40%를 차지하며, 자재비는 나머지 60~70%를 차지합니다. 특히 창호, 주방가구, 바닥재, 조명 등의 자재 등급에 따라 <strong>금액</strong>이 크게 달라집니다.</li>
+      <li><strong>철거 및 폐기물 처리:</strong> 구축 아파트는 철거할 부분이 많고, 폐기물 처리 비용도 무시할 수 없습니다. 철거 범위가 넓을수록 <strong>예상 비용</strong>이 증가합니다.</li>
+      <li><strong>숨겨진 추가 비용 (변수):</strong> 구축 아파트는 공사 중 곰팡이, 배관 누수, 전기 설비 노후 등 예상치 못한 문제가 발견되는 경우가 많습니다. <strong>평균</strong>적으로 총 견적의 10% 정도는 예비 비용으로 준비하는 것이 좋습니다.</li>
+    </ol>
+  </section>
+  
+  <!-- Section 3: 리모델링 과정 상세 및 체크리스트 -->
+  <section id="process">
+    <span id="process-anchor" class="anchor"></span>
+    <h2>오래된 아파트 리모델링 프로세스 (5단계)</h2>
+    <p>오래된 아파트 리모델링은 계획, 디자인, 철거, 시공, 마감의 5단계로 진행됩니다. 각 단계별로 꼼꼼하게 체크해야 완성도 높은 결과를 얻을 수 있습니다. 특히 구축 아파트 리모델링은 신축 대비 변수가 많으므로 전문가와의 소통이 중요합니다.</p>
+
+    <h3>3-1. 리모델링 필수 체크리스트</h3>
+    <ol>
+      <li><strong>1단계: 계획 수립 및 디자인 (1~2주 소요)</strong>
+        <ul>
+          <li><strong>라이프스타일 분석:</strong> 가족 구성원, 취미, 생활 패턴을 고려한 공간 구상.</li>
+          <li><strong>예산 설정:</strong> 총 예산을 정하고 올수리, 부분 수리 중 공사 범위를 결정.</li>
+          <li><strong>업체 선정:</strong> 포트폴리오, <strong>후기</strong>, <strong>견적</strong>을 비교하여 <strong>추천</strong> 업체를 선정. (최소 3개 이상의 업체에서 <strong>견적 비교</strong> 필요)</li>
+        </ul>
+      </li>
+      <li><strong>2단계: 철거 및 기초 공사 (1~2주 소요)</strong>
+        <ul>
+          <li><strong>철거 및 폐기물 처리:</strong> 주방 싱크대, 욕실, 바닥재 등을 철거하고 폐기물 반출. (이웃 민원 최소화를 위한 시간대 준수 필수)</li>
+          <li><strong>배관 및 설비 공사:</strong> 낡은 수도관, 난방 배관 교체. 전기 배선 증설 및 분배기 교체.</li>
+          <li><strong>단열 공사:</strong> 외벽 쪽 곰팡이가 심한 경우 단열재 보강.</li>
+        </ul>
+      </li>
+      <li><strong>3단계: 창호 및 목공 공사 (2~3주 소요)</strong>
+        <ul>
+          <li><strong>창호 교체:</strong> 노후된 창호를 에너지 효율 1등급 제품으로 교체. (창호 교체 시 정부 지원 사업 확인: 그린리모델링 이자지원)</li>
+          <li><strong>목공 공사:</strong> 천장 평탄화, 몰딩, 문틀 교체, 아트월 설치.</li>
+        </ul>
+      </li>
+      <li><strong>4단계: 마감 공사 및 인테리어 (2~3주 소요)</strong>
+        <ul>
+          <li><strong>바닥재/벽재:</strong> 마루(강마루/원목마루) 시공, 도배(실크벽지/합지).</li>
+          <li><strong>주방 및 욕실:</strong> 타일 시공, 주방가구(싱크대) 설치, 욕실 기구 설치.</li>
+          <li><strong>조명 및 가구 설치:</strong> 매립등, 간접조명 설치 및 붙박이장, 수납장 설치.</li>
+        </ul>
+      </li>
+      <li><strong>5단계: 입주 청소 및 검수 (1주 소요)</strong>
+        <ul>
+          <li><strong>입주 청소:</strong> 공사 분진 제거 및 소독.</li>
+          <li><strong>하자 검수:</strong> 문이 닫히는지, 조명 스위치가 작동하는지 등 최종 검수.</li>
+        </ul>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Section 4: 리모델링 업체 선정 팁 및 지역별 정보 -->
+  <section id="provider">
+    <span id="provider-anchor" class="anchor"></span>
+    <h2>오래된 아파트 리모델링, 싼곳 vs 추천 업체 선정 가이드</h2>
+    <p>오래된 아파트 리모델링의 성공 여부는 시공 업체를 어떻게 선정하느냐에 달려있습니다. <strong>저렴한곳</strong>만 찾다가는 하자 보수 문제로 더 큰 <strong>비용</strong>을 지출할 수 있습니다. <strong>추천</strong> 업체를 선정할 때는 <strong>순위</strong>나 <strong>가격</strong>보다는 포트폴리오와 책임 시공 여부를 우선해야 합니다. 특히 구축 아파트 리모델링은 기술적인 노하우가 필요하므로 경험이 풍부한 업체를 선택해야 합니다.</p>
+
+    <h3>4-1. 시공 업체 유형별 장단점 비교</h3>
+    <table>
+      <thead>
+        <tr>
+          <th>유형</th>
+          <th>설명</th>
+          <th>장점</th>
+          <th>단점</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>인테리어 플랫폼 (예: 오늘의집)</td>
+          <td>여러 업체 정보를 비교하고 <strong>견적</strong>을 받을 수 있는 서비스.</td>
+          <td>다양한 업체 <strong>비교</strong> 가능, <strong>후기</strong> 참고 용이.</td>
+          <td>업체별 품질 편차 큼, 중간 수수료 발생 가능성.</td>
+        </tr>
+        <tr>
+          <td>토탈 인테리어 업체</td>
+          <td>디자인부터 시공까지 일괄 책임지는 업체.</td>
+          <td>높은 완성도, 책임감 있는 시공, 편리성.</td>
+          <td><strong>가격</strong>이 상대적으로 비쌈, 업체 선정 신중해야 함.</td>
+        </tr>
+        <tr>
+          <td>셀프 인테리어 (직영 공사)</td>
+          <td>각 분야별 전문가를 직접 섭외하여 공사를 진행.</td>
+          <td><strong>저렴한 금액</strong>으로 시공 가능, 맞춤 설계 가능.</td>
+          <td>시간 소모 많음, 공정 관리 어려움, 하자 발생 시 책임 소재 불분명.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>4-2. 전국 주요 지역별 리모델링 특징 (2026년)</h3>
+    <p>리모델링 수요가 높은 전국 주요 지역의 특징을 분석합니다. 특히 <strong>서울 강남, 송파, 서초</strong> 지역은 재건축을 앞둔 구축 아파트의 리모델링 수요가 꾸준하며, <strong>경기 분당, 일산, 평택, 수원</strong> 등 신도시 지역도 1기 신도시 리모델링 활성화로 관심이 높습니다. <strong>부산 해운대, 센텀시티</strong>나 <strong>인천 송도, 청라</strong> 등 신도시 지역도 10년차 이상의 아파트가 늘면서 리모델링 <strong>수요</strong>가 증가하고 있습니다.</p>
+    <ul>
+      <li><strong>수도권:</strong> 서울(강남, 송파, 서초, 목동, 마포), 경기도(분당, 일산, 평택, 수원, 용인, 안양, 광명, 남양주, 하남, 김포, 의정부, 오산, 파주), 인천(송도, 청라, 계양구)</li>
+      <li><strong>광역시:</strong> 부산(해운대, 수영, 동래), 대구(수성구, 달서구), 대전(유성구, 서구), 광주(봉선동, 수완지구), 울산(남구, 중구), 세종시.</li>
+      <li><strong>지방:</strong> 강원도(춘천, 원주), 충청도(청주, 천안), 경상도(창원, 포항, 구미), 전라도(전주, 순천).</li>
+    </ul>
+    <p>각 지역의 리모델링 시장 동향, <strong>평균 가격</strong>, <strong>견적</strong>을 상세히 비교하여 현명한 선택을 돕겠습니다. 해당 지역별 <strong>추천</strong> 업체 정보도 제공합니다.</p>
+  </section>
+
+  <!-- Section 5: 자주 묻는 질문 (FAQ) -->
+  <section id="faq">
+    <span id="faq-anchor" class="anchor"></span>
+    <h2>자주 묻는 질문 (FAQ)</h2>
+    <dl>
+      <dt>Q1: 오래된 아파트 리모델링, 올수리 vs 부분수리 중 어떤 것을 선택해야 할까요?</dt>
+      <dd>A: 아파트의 상태와 예산에 따라 결정됩니다. 배관, 단열, 샷시 등 인프라 문제가 심각하고 장기 거주를 계획한다면 올수리가 낫습니다. 예산이 한정적이거나 단기 거주 예정이라면 부분수리로 인테리어 효과만 노리는 것이 합리적입니다. <strong>가격</strong> <strong>차이점</strong>은 크므로 전문가와 상의하여 <strong>장단점</strong>을 비교해보세요.</dd>
+      
+      <dt>Q2: 리모델링 공사 기간은 보통 얼마나 걸리나요?</dt>
+      <dd>A: 공사 범위에 따라 다릅니다. 부분수리(도배, 장판, 주방)는 1~2주, 20평대 올수리는 4~6주, 30평대 이상 올수리는 6~8주 정도가 <strong>평균</strong>적인 공사 기간입니다. 공사 기간 중 거주 문제를 해결해야 하므로 이사 날짜와 공사 기간을 미리 조율하는 것이 중요합니다.</dd>
+      
+      <dt>Q3: 리모델링 견적을 <strong>저렴한곳</strong>으로 받으려면 어떻게 해야 하나요?</dt>
+      <dd>A: 여러 업체에 <strong>견적 비교</strong>를 요청하는 것이 기본입니다. 또한, 불필요한 마감재를 고집하기보다 가성비 좋은 자재를 선택하고, 공사 범위를 명확히 하여 추가 비용 발생을 최소화해야 합니다. 주방가구나 욕실 타일을 직접 구매하는 '반셀프' 방식도 <strong>비용</strong> 절감에 도움이 될 수 있습니다.</dd>
+      
+      <dt>Q4: 리모델링 시 <strong>내돈내산</strong> <strong>후기</strong>를 참고할 때 주의할 점은 무엇인가요?</dt>
+      <dd>A: <strong>후기</strong>의 내용이 구체적인지 확인해야 합니다. 시공 전후 사진뿐만 아니라 <strong>견적서</strong>의 세부 항목, 공사 과정에서 발생한 문제점 및 해결 과정이 상세히 기록되어 있으면 신뢰도가 높습니다. <strong>순위</strong>보다는 실질적인 정보에 집중하세요.</dd>
+    </dl>
+  </section>
+
+  <!-- Section 6: 상담 문의 및 견적 폼 -->
+  <section id="contact">
+    <span id="contact-anchor" class="anchor"></span>
+    <h2>오래된 아파트 리모델링 무료 견적 상담</h2>
+    <p>오래된 아파트 리모델링은 정확한 진단과 견적이 중요합니다. 꼼꼼한 상담을 통해 합리적인 <strong>비용</strong>으로 최고의 결과를 얻으세요. 아래 폼을 작성하시면 전문 컨설턴트가 자세한 상담을 도와드립니다.</p>
+    <form action="/submit" method="POST" style="max-width:700px; margin:auto;">
+      <label for="name">이름<span style="color:red;">*</span></label><br />
+      <input type="text" id="name" name="name" required placeholder="홍길동" />
+
+      <label for="phone">연락처<span style="color:red;">*</span></label><br />
+      <input type="tel" id="phone" name="phone" required placeholder="010-1234-5678" pattern="[0-9\-]+" />
+
+      <label for="address">현재 거주지 주소 (예: 서울시 강남구, 평택시 비전동)</label><br />
+      <input type="text" id="address" name="address" placeholder="예: 평택시 비전동" />
+
+      <label for="apt-size">아파트 면적 (평/제곱미터)<span style="color:red;">*</span></label><br />
+      <input type="text" id="apt-size" name="apt_size" required placeholder="예: 30평 또는 99㎡" />
+
+      <label for="apt-age">아파트 건축 연도 또는 경과 기간</label><br />
+      <input type="text" id="apt-age" name="apt_age" placeholder="예: 1995년 건축 또는 28년차" />
+
+      <label for="remodel-scope">희망 리모델링 범위<span style="color:red;">*</span></label><br />
+      <select id="remodel-scope" name="remodel_scope" required>
+        <option value="">선택하세요</option>
+        <option value="올수리 (전체 인테리어)">올수리 (전체 인테리어)</option>
+        <option value="부분 수리 (주방/욕실/바닥 등)">부분 수리 (주방/욕실/바닥 등)</option>
+        <option value="주요 설비 교체 (창호/배관/단열)">주요 설비 교체 (창호/배관/단열)</option>
+      </select>
+
+      <label for="budget">예상 예산 범위</label><br />
+      <select id="budget" name="budget">
+        <option value="">선택하세요</option>
+        <option value="1천만원 이하">1천만원 이하</option>
+        <option value="1천만원 ~ 3천만원">1천만원 ~ 3천만원</option>
+        <option value="3천만원 ~ 5천만원">3천만원 ~ 5천만원</option>
+        <option value="5천만원 이상">5천만원 이상</option>
+      </select>
+
+      <label for="message">추가 요청 사항</label><br />
+      <textarea id="message" name="message" rows="5" placeholder="예: 희망 공사 시작일, 특정 디자인 요청, 곰팡이 문제 해결 등"></textarea>
+
+      <button type="submit" class="btn-cta">무료 견적 문의하기</button>
+    </form>
+  </section>
+
+  
